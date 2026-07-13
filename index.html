@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thirsty Barber | Restaurant in San Juan City</title>
+<meta name="description" content="Thirsty Barber — Good food, great company. Visit us in San Juan City.">
+<meta name="keywords" content="Thirsty Barber, Restaurant, San Juan City, Philippines, local business">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg: #FAF8F5;
+  --text: #1C1A18;
+  --accent: #C2847A;
+  --surface: color-mix(in srgb, #FAF8F5 92%, #1C1A18);
+  --border: color-mix(in srgb, #FAF8F5 82%, #1C1A18);
+  --muted: color-mix(in srgb, #1C1A18 65%, #FAF8F5);
+  --font-h: 'Fraunces', serif;
+  --font-b: 'DM Sans', sans-serif;
+}
+/* Philosophy: Minimalist
+   Clean, subtle, professional. Small radius, light shadows, gentle fade animations.
+   Default philosophy — applied when manifest has no philosophy field. */
+:root {
+    --phil-radius-sm: 2px;
+    --phil-radius-md: 6px;
+    --phil-radius-lg: 8px;
+    --phil-radius-full: 9999px;
+    --phil-shadow-card: 0 2px 8px rgba(0,0,0,0.04);
+    --phil-shadow-card-hover: 0 8px 24px rgba(0,0,0,0.08);
+    --phil-shadow-hero: 0 4px 16px rgba(0,0,0,0.06);
+    --phil-border-card: 1px solid var(--border);
+    --phil-border-accent: 1px solid var(--accent);
+    --phil-border-thick: 1px solid var(--text);
+    --phil-anim-reveal: fade-up 0.7s ease forwards;
+    --phil-anim-card-hover: transform 0.25s ease, box-shadow 0.25s ease;
+    --phil-anim-card-translate-y: translateY(-4px);
+    --phil-type-scale: 1.125;
+    --phil-spacing-section: 96px;
+    --phil-spacing-card-padding: 1.8rem;
+    --phil-spacing-card-gap: 1.5rem;
+    --phil-overlay-opacity: 0.72;
+    --phil-btn-radius: 2px;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.6;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,.fh{font-family:var(--font-h);font-weight:600;line-height:1.15}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;height:auto;display:block}
+.container{width:100%;max-width:1180px;margin:0 auto;padding:0 5%}
+.section{padding:var(--phil-spacing-section) 0}
+.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:600;color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--bg);padding:1rem 2rem;font-weight:600;letter-spacing:.02em;border-radius:var(--phil-btn-radius);transition:transform .25s ease,opacity .25s ease;cursor:pointer;border:none;font-family:var(--font-b)}
+.btn:hover{transform:translateY(-3px);opacity:.92}
+.btn--ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+/* NAV */
+#nav{position:fixed;inset:0 0 auto 0;padding:1.25rem 0;z-index:100;transition:all .35s ease;color:#fff}
+#nav.scrolled{background:var(--bg);color:var(--text);box-shadow:0 4px 24px rgba(0,0,0,.06);padding:.85rem 0}
+.nav__in{display:flex;justify-content:space-between;align-items:center}
+.nav__brand{font-family:var(--font-h);font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
+.nav__cta{font-weight:600;font-size:.9rem;border:1px solid currentColor;padding:.5rem 1rem;border-radius:2px}
+@media(max-width:720px){.section{padding:64px 0}.nav__cta{display:none}}
+</style>
+</head>
+<body>
+<nav id="nav"><div class="container nav__in">
+  <a href="#" class="nav__brand">Thirsty Barber</a>
+  <a href="tel:639773608130" class="nav__cta">639773608130</a>
+</div></nav>
+<style>
+.hx-ov{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background-size:cover;background-position:center}
+.hx-ov::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,var(--phil-overlay-opacity)))}
+.hx-ov__in{position:relative;z-index:2;color:#fff;max-width:820px;padding:0 5%}
+.hx-ov__title{font-size:clamp(3rem,7vw,6rem);font-style:italic;margin:.4rem 0 1rem}
+.hx-ov__sub{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:300;opacity:.92;margin-bottom:2rem}
+</style>
+<header class="hx-ov" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&amp;h=1080&amp;fit=crop')">
+  <div class="hx-ov__in reveal">
+    <p class="eyebrow" style="color:#fff;opacity:.8">Restaurant</p>
+    <h1 class="hx-ov__title">Thirsty Barber</h1>
+    <p class="hx-ov__sub">Thirsty Barber</p>
+    <a href="https://wa.me/639773608130" class="btn">Get in Touch</a>
+  </div>
+</header>
+<style>
+.sx-menu{background:var(--surface)}
+.sx-menu__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--phil-spacing-card-gap) 3.5rem;margin-top:2.5rem}
+.sx-menu__item{border-bottom:1px solid var(--border);padding-bottom:.6rem}
+.sx-menu__hd{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
+.sx-menu__hd h3{font-size:1.2rem}
+.sx-menu__price{color:var(--accent);font-weight:600}
+.sx-menu__item p{color:var(--muted);font-size:.92rem;margin-top:.3rem}
+</style>
+<section class="section sx-menu" id="menu"><div class="container">
+  <p class="eyebrow reveal" style="text-align:center">Menu</p>
+  <h2 class="reveal" style="text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);margin-top:.4rem">Our Services</h2>
+  <div class="sx-menu__grid">
+    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Chef's Special</h3><span class="sx-menu__price"></span></div><p>Today's featured dish, made fresh.</p></div>
+    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Family Platter</h3><span class="sx-menu__price"></span></div><p>Shareable portions for the table.</p></div>
+    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Merienda Set</h3><span class="sx-menu__price"></span></div><p>Quick, filling, and affordable.</p></div>
+  </div>
+</div></section>
+<style>
+.sx-about__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--phil-spacing-card-gap);align-items:center}
+.sx-about__img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--phil-radius-md)}
+.sx-about h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.2rem}
+.sx-about p{color:var(--muted);font-size:1.08rem}
+@media(max-width:820px){.sx-about__grid{grid-template-columns:1fr;gap:2.5rem}}
+</style>
+<section class="section sx-about" id="about"><div class="container sx-about__grid">
+  <div class="reveal"><img class="sx-about__img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></div>
+  <div class="reveal"><p class="eyebrow">About Thirsty Barber</p><h2 class="fh">About Thirsty Barber</h2><p>Thirsty Barber brings honest, satisfying food to San Juan City. Every dish is made to be shared and enjoyed with the people you love.</p></div>
+</div></section>
+<style>
+.sx-gal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--phil-spacing-card-gap)}
+.sx-gal__grid figure{aspect-ratio:1;overflow:hidden;border-radius:var(--phil-radius-md);background:var(--surface)}
+.sx-gal__grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.sx-gal__grid figure:hover img{transform:scale(1.06)}
+@media(max-width:820px){.sx-gal__grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.sx-gal__grid{grid-template-columns:1fr}}
+</style>
+<section class="section" id="gallery"><div class="container">
+  <div class="sx-gal__grid">
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&amp;h=800&amp;fit=crop" alt="Thirsty Barber"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&amp;h=800&amp;fit=crop" alt="Thirsty Barber"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
+    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
+  </div>
+</div></section>
+<style>
+.sx-loc__grid{display:grid;grid-template-columns:1fr 1fr;background:var(--surface)}
+.sx-loc__content{padding:4rem 8%;display:flex;flex-direction:column;justify-content:center}
+.sx-loc__content h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:1.2rem}
+.sx-loc__row{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);font-size:.95rem}
+.sx-loc__addr{margin-top:1.2rem;color:var(--muted)}
+.sx-loc__map{min-height:420px}
+.sx-loc__map iframe{width:100%;height:100%;border:0}
+@media(max-width:820px){.sx-loc__grid{grid-template-columns:1fr}.sx-loc__map{min-height:320px}}
+</style>
+<section id="visit"><div class="sx-loc__grid">
+  <div class="sx-loc__content reveal">
+    <p class="eyebrow">Visit us</p><h2 class="fh">Thirsty Barber</h2>
+    <div class="sx-loc__row"><span>10:00 AM – 9:00 PM</span></div>
+    <div class="sx-loc__row"><span>10:00 AM – 9:00 PM</span></div>
+    <p class="sx-loc__addr">160 Luna Mencias</p>
+    <p class="sx-loc__addr"><a href="tel:639773608130">639773608130</a></p>
+  </div>
+  <div class="sx-loc__map reveal"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.8!2d121.04!3d14.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sThirsty+Barber!5e0!3m2!1sen!2sph" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
+</div></section>
+<style>
+.sx-cta{background:var(--text);color:var(--bg);text-align:center;padding:5rem 0}
+.sx-cta h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.5rem 0 .4rem}
+.sx-cta__phone{font-family:var(--font-h);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--accent);display:inline-block;margin-bottom:.4rem}
+.sx-cta__hours{opacity:.7;margin-bottom:1.6rem}
+</style>
+<section class="sx-cta"><div class="container reveal">
+  <p class="eyebrow" style="color:var(--accent)">Get in touch</p>
+  <a class="sx-cta__phone" href="tel:639773608130">639773608130</a>
+  <p class="sx-cta__hours">10:00 AM – 9:00 PM</p>
+  <a class="btn" href="tel:639773608130">Get in Touch</a>
+</div></section>
+<style>
+.ft{background:var(--text);color:var(--bg);padding:3.5rem 0 2rem;text-align:center;border-top:1px solid color-mix(in srgb,var(--bg) 15%,transparent)}
+.ft__soc{display:flex;justify-content:center;gap:1.6rem;margin-bottom:1.4rem}
+.ft__soc a{font-family:var(--font-h);font-style:italic;transition:color .25s ease}
+.ft__soc a:hover{color:var(--accent)}
+.ft__copy{opacity:.6;font-size:.82rem}
+</style>
+<footer class="ft"><div class="container">
+  <div class="ft__soc">
+    <a href="" target="_blank" rel="noopener">Facebook</a>
+    <a href="" target="_blank" rel="noopener">Instagram</a>
+  </div>
+  <p class="ft__copy">&copy; <span id="yr"></span> Thirsty Barber. All rights reserved.</p>
+</div></footer>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  setTimeout(function(){document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){el.classList.add('visible');});},1600);
+  var nav=document.getElementById('nav');
+  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);});}
+  var yr=document.getElementById('yr');if(yr)yr.textContent=new Date().getFullYear();
+});
+</script>
+</body></html>
