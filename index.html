@@ -1,194 +1,791 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Thirsty Barber | Restaurant in San Juan City</title>
-<meta name="description" content="Thirsty Barber — Good food, great company. Visit us in San Juan City.">
-<meta name="keywords" content="Thirsty Barber, Restaurant, San Juan City, Philippines, local business">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bg: #FAF8F5;
-  --text: #1C1A18;
-  --accent: #C2847A;
-  --surface: color-mix(in srgb, #FAF8F5 92%, #1C1A18);
-  --border: color-mix(in srgb, #FAF8F5 82%, #1C1A18);
-  --muted: color-mix(in srgb, #1C1A18 65%, #FAF8F5);
-  --font-h: 'Fraunces', serif;
-  --font-b: 'DM Sans', sans-serif;
-}
-/* Philosophy: Minimalist
-   Clean, subtle, professional. Small radius, light shadows, gentle fade animations.
-   Default philosophy — applied when manifest has no philosophy field. */
-:root {
-    --phil-radius-sm: 2px;
-    --phil-radius-md: 6px;
-    --phil-radius-lg: 8px;
-    --phil-radius-full: 9999px;
-    --phil-shadow-card: 0 2px 8px rgba(0,0,0,0.04);
-    --phil-shadow-card-hover: 0 8px 24px rgba(0,0,0,0.08);
-    --phil-shadow-hero: 0 4px 16px rgba(0,0,0,0.06);
-    --phil-border-card: 1px solid var(--border);
-    --phil-border-accent: 1px solid var(--accent);
-    --phil-border-thick: 1px solid var(--text);
-    --phil-anim-reveal: fade-up 0.7s ease forwards;
-    --phil-anim-card-hover: transform 0.25s ease, box-shadow 0.25s ease;
-    --phil-anim-card-translate-y: translateY(-4px);
-    --phil-type-scale: 1.125;
-    --phil-spacing-section: 96px;
-    --phil-spacing-card-padding: 1.8rem;
-    --phil-spacing-card-gap: 1.5rem;
-    --phil-overlay-opacity: 0.72;
-    --phil-btn-radius: 2px;
-}
 
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--font-b);line-height:1.6;font-size:16px;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-h1,h2,h3,h4,.fh{font-family:var(--font-h);font-weight:600;line-height:1.15}
-a{color:inherit;text-decoration:none}
-img{max-width:100%;height:auto;display:block}
-.container{width:100%;max-width:1180px;margin:0 auto;padding:0 5%}
-.section{padding:var(--phil-spacing-section) 0}
-.eyebrow{text-transform:uppercase;letter-spacing:.14em;font-size:.75rem;font-weight:600;color:var(--accent)}
-.btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--accent);color:var(--bg);padding:1rem 2rem;font-weight:600;letter-spacing:.02em;border-radius:var(--phil-btn-radius);transition:transform .25s ease,opacity .25s ease;cursor:pointer;border:none;font-family:var(--font-b)}
-.btn:hover{transform:translateY(-3px);opacity:.92}
-.btn--ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.visible{opacity:1;transform:none}
-/* NAV */
-#nav{position:fixed;inset:0 0 auto 0;padding:1.25rem 0;z-index:100;transition:all .35s ease;color:#fff}
-#nav.scrolled{background:var(--bg);color:var(--text);box-shadow:0 4px 24px rgba(0,0,0,.06);padding:.85rem 0}
-.nav__in{display:flex;justify-content:space-between;align-items:center}
-.nav__brand{font-family:var(--font-h);font-size:1.4rem;font-weight:700;letter-spacing:-.01em}
-.nav__cta{font-weight:600;font-size:.9rem;border:1px solid currentColor;padding:.5rem 1rem;border-radius:2px}
-@media(max-width:720px){.section{padding:64px 0}.nav__cta{display:none}}
-</style>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thirsty Barber | Restaurant in San Juan City</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#93000a",
+                    "secondary-fixed-dim": "#bfcd8f",
+                    "on-secondary-fixed": "#171e00",
+                    "on-error": "#690005",
+                    "surface-tint": "#ffb59c",
+                    "on-primary-fixed-variant": "#822701",
+                    "on-error-container": "#ffdad6",
+                    "on-primary": "#5c1900",
+                    "surface-container-low": "#1c1b1b",
+                    "on-surface-variant": "#dec0b7",
+                    "outline-variant": "#57423b",
+                    "on-primary-fixed": "#390c00",
+                    "tertiary-container": "#939181",
+                    "surface-bright": "#393939",
+                    "on-tertiary": "#313124",
+                    "on-secondary-fixed-variant": "#404b1b",
+                    "primary-fixed": "#ffdbcf",
+                    "secondary": "#bfcd8f",
+                    "tertiary-fixed": "#e6e3d0",
+                    "inverse-primary": "#a23e18",
+                    "surface": "#131313",
+                    "primary-fixed-dim": "#ffb59c",
+                    "on-surface": "#e5e2e1",
+                    "secondary-container": "#45501f",
+                    "surface-container-lowest": "#0e0e0e",
+                    "on-background": "#e5e2e1",
+                    "surface-dim": "#131313",
+                    "inverse-surface": "#e5e2e1",
+                    "inverse-on-surface": "#313030",
+                    "surface-container-high": "#2a2a2a",
+                    "on-primary-container": "#511500",
+                    "on-tertiary-fixed-variant": "#48473a",
+                    "on-tertiary-fixed": "#1c1c11",
+                    "surface-variant": "#353535",
+                    "on-secondary": "#2a3406",
+                    "error": "#ffb4ab",
+                    "surface-container-highest": "#353535",
+                    "surface-container": "#20201f",
+                    "tertiary": "#c9c7b5",
+                    "on-secondary-container": "#b4c285",
+                    "secondary-fixed": "#dbe9a9",
+                    "primary": "#1C1A18",
+                    "tertiary-fixed-dim": "#c9c7b5",
+                    "background": "#FAF8F5",
+                    "primary-container": "#C2847A",
+                    "outline": "#a58b83",
+                    "on-tertiary-container": "#2b2a1e"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1200px",
+                    "unit": "8px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px",
+                    "margin-mobile": "20px"
+            },
+            "fontFamily": {
+                    "label-lg": ["Nunito+Sans"],
+                    "label-sm": ["Nunito+Sans"],
+                    "headline-lg": ["Playfair+Display"],
+                    "headline-md": ["Playfair+Display"],
+                    "body-md": ["Nunito+Sans"],
+                    "display-lg-mobile": ["Playfair+Display"],
+                    "display-lg": ["Playfair+Display"],
+                    "body-lg": ["Nunito+Sans"]
+            },
+            "fontSize": {
+                    "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                    "headline-lg": ["48px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "display-lg-mobile": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        
+        /* Subtle Grain Texture Overlay */
+        .grain-bg::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.035;
+            pointer-events: none;
+            z-index: 1;
+            background-image: url("https://www.transparenttextures.com/patterns/p6.png");
+        }
+
+        /* Organic Section Transitions */
+        .slant-down {
+            clip-path: polygon(0 0, 100% 0, 100% 95%, 0 100%);
+        }
+        .slant-up {
+            clip-path: polygon(0 5%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        /* Torn Paper Fringe Effect */
+        .torn-edge-bottom::after {
+            content: "";
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background-color: inherit;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath d='M0,24 L1200,24 L1200,0 C1150,15 1100,5 1050,18 C1000,8 950,22 900,10 C850,20 800,5 750,15 C700,5 650,22 600,12 C550,22 500,5 450,15 C400,8 350,22 300,10 C250,20 200,5 150,15 C100,8 50,22 0,10 Z' fill='black'/%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            z-index: 5;
+        }
+
+        .torn-edge-top::before {
+            content: "";
+            position: absolute;
+            top: -23px;
+            left: 0;
+            width: 100%;
+            height: 24px;
+            background-color: inherit;
+            mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 24' preserveAspectRatio='none'%3E%3Cpath d='M0,0 L1200,0 L1200,24 C1150,9 1100,19 1050,6 C1000,16 950,2 900,14 C850,4 800,19 750,9 C700,19 650,2 600,12 C550,2 500,19 450,9 C400,16 350,2 300,14 C250,4 200,19 150,9 C100,16 50,2 0,14 Z' fill='black'/%3E%3C/svg%3E");
+            mask-size: 100% 100%;
+            z-index: 5;
+        }
+
+        /* Textured Section Divider - Enhanced with Organic Shape */
+        .textured-border {
+            position: relative;
+        }
+        .textured-border::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 5%;
+            right: 5%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, rgba(165, 139, 131, 0.4) 20%, rgba(165, 139, 131, 0.4) 80%, transparent);
+            filter: contrast(150%) brightness(80%);
+            box-shadow: 0 0.5px 0.5px rgba(0,0,0,0.5);
+            border-bottom: 1px dashed rgba(165, 139, 131, 0.2);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 181, 156, 0.2);
+        }
+    </style>
 </head>
-<body>
-<nav id="nav"><div class="container nav__in">
-  <a href="#" class="nav__brand">Thirsty Barber</a>
-  <a href="tel:639773608130" class="nav__cta">639773608130</a>
-</div></nav>
-<style>
-.hx-ov{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;background-size:cover;background-position:center}
-.hx-ov::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,var(--phil-overlay-opacity)))}
-.hx-ov__in{position:relative;z-index:2;color:#fff;max-width:820px;padding:0 5%}
-.hx-ov__title{font-size:clamp(3rem,7vw,6rem);font-style:italic;margin:.4rem 0 1rem}
-.hx-ov__sub{font-size:clamp(1.05rem,2vw,1.4rem);font-weight:300;opacity:.92;margin-bottom:2rem}
-</style>
-<header class="hx-ov" style="background-image:url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&amp;h=1080&amp;fit=crop')">
-  <div class="hx-ov__in reveal">
-    <p class="eyebrow" style="color:#fff;opacity:.8">Restaurant</p>
-    <h1 class="hx-ov__title">Thirsty Barber</h1>
-    <p class="hx-ov__sub">Thirsty Barber</p>
-    <a href="https://wa.me/639773608130" class="btn">Get in Touch</a>
-  </div>
+<body class="bg-background text-on-background selection:bg-primary/30 selection:text-primary grain-bg relative">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/20 backdrop-blur-md transition-all duration-300">
+<div class="flex justify-between items-center px-margin-desktop py-unit max-w-container-max mx-auto">
+<a class="font-headline-md text-headline-md text-primary" href="#">Thirsty Barber</a>
+<div class="hidden md:flex items-center gap-gutter">
+<a class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">Menu</a>
+<a class="font-label-lg text-label-lg tracking-widest uppercase text-on-surface hover:text-primary transition-colors duration-300" href="#">Our Story</a>
+<a href="https://wa.me/639773608130" class="ml-4 bg-primary text-on-primary px-6 py-2 transition-all duration-200 font-label-lg text-label-lg uppercase tracking-widest hover:brightness-110">Contact Us</a>
+</div>
+<button class="md:hidden text-primary">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</nav>
+<!-- Product-Focused Hero Section -->
+<header class="relative min-h-screen flex items-center overflow-hidden pt-20 bg-surface-container-lowest slant-down torn-edge-bottom">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+<!-- Hero Text -->
+<div class="relative z-10 order-2 lg:order-1">
+<span class="text-primary font-label-lg text-label-lg uppercase tracking-[0.3em] mb-4 block">Serving San Juan City ★ 4.6</span>
+<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-background mb-6 leading-tight">Thirsty Barber</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12 max-w-lg">Restaurant</p>
+<div class="flex flex-col sm:flex-row items-center gap-6">
+<a href="https://wa.me/639773608130" class="w-full sm:w-auto bg-primary text-on-primary px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,181,156,0.3)]">Get in Touch</a>
+<button class="w-full sm:w-auto border border-outline text-on-surface px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest transition-all duration-300 hover:bg-on-surface/5">
+                    View Menu
+                </button>
+</div>
+</div>
+<!-- Hero Image (Product-Style) -->
+<div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="relative w-full aspect-square max-w-[540px] group">
+<div class="absolute -inset-4 border border-outline-variant/30 rounded-full animate-[spin_20s_linear_infinite] opacity-40"></div>
+<div class="absolute inset-0 bg-surface-container-high rounded-full overflow-hidden shadow-2xl border border-outline-variant/20">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1920&amp;h=1080&amp;fit=crop')"></div>
+</div>
+<div class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 backdrop-blur-md rounded-full border border-primary/20 flex items-center justify-center">
+<span class="text-primary font-headline-md italic">Chef's Choice</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute bottom-12 left-1/2 -translate-x-1/2 animate-bounce opacity-40 z-20">
+<span class="material-symbols-outlined text-primary">expand_more</span>
+</div>
 </header>
-<style>
-.sx-menu{background:var(--surface)}
-.sx-menu__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:var(--phil-spacing-card-gap) 3.5rem;margin-top:2.5rem}
-.sx-menu__item{border-bottom:1px solid var(--border);padding-bottom:.6rem}
-.sx-menu__hd{display:flex;justify-content:space-between;align-items:baseline;gap:1rem}
-.sx-menu__hd h3{font-size:1.2rem}
-.sx-menu__price{color:var(--accent);font-weight:600}
-.sx-menu__item p{color:var(--muted);font-size:.92rem;margin-top:.3rem}
-</style>
-<section class="section sx-menu" id="menu"><div class="container">
-  <p class="eyebrow reveal" style="text-align:center">Menu</p>
-  <h2 class="reveal" style="text-align:center;font-size:clamp(1.9rem,4vw,2.8rem);margin-top:.4rem">Our Services</h2>
-  <div class="sx-menu__grid">
-    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Chef's Special</h3><span class="sx-menu__price"></span></div><p>Today's featured dish, made fresh.</p></div>
-    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Family Platter</h3><span class="sx-menu__price"></span></div><p>Shareable portions for the table.</p></div>
-    <div class="sx-menu__item reveal"><div class="sx-menu__hd"><h3>Merienda Set</h3><span class="sx-menu__price"></span></div><p>Quick, filling, and affordable.</p></div>
-  </div>
-</div></section>
-<style>
-.sx-about__grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--phil-spacing-card-gap);align-items:center}
-.sx-about__img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--phil-radius-md)}
-.sx-about h2{font-size:clamp(2rem,4vw,3rem);margin-bottom:1.2rem}
-.sx-about p{color:var(--muted);font-size:1.08rem}
-@media(max-width:820px){.sx-about__grid{grid-template-columns:1fr;gap:2.5rem}}
-</style>
-<section class="section sx-about" id="about"><div class="container sx-about__grid">
-  <div class="reveal"><img class="sx-about__img" src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></div>
-  <div class="reveal"><p class="eyebrow">About Thirsty Barber</p><h2 class="fh">About Thirsty Barber</h2><p>Thirsty Barber brings honest, satisfying food to San Juan City. Every dish is made to be shared and enjoyed with the people you love.</p></div>
-</div></section>
-<style>
-.sx-gal__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--phil-spacing-card-gap)}
-.sx-gal__grid figure{aspect-ratio:1;overflow:hidden;border-radius:var(--phil-radius-md);background:var(--surface)}
-.sx-gal__grid img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-.sx-gal__grid figure:hover img{transform:scale(1.06)}
-@media(max-width:820px){.sx-gal__grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:520px){.sx-gal__grid{grid-template-columns:1fr}}
-</style>
-<section class="section" id="gallery"><div class="container">
-  <div class="sx-gal__grid">
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&amp;h=800&amp;fit=crop" alt="Thirsty Barber"></figure>
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&amp;h=800&amp;fit=crop" alt="Thirsty Barber"></figure>
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=900&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
-    <figure class="reveal"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&amp;h=600&amp;fit=crop" alt="Thirsty Barber"></figure>
-  </div>
-</div></section>
-<style>
-.sx-loc__grid{display:grid;grid-template-columns:1fr 1fr;background:var(--surface)}
-.sx-loc__content{padding:4rem 8%;display:flex;flex-direction:column;justify-content:center}
-.sx-loc__content h2{font-size:clamp(1.8rem,3.5vw,2.6rem);margin-bottom:1.2rem}
-.sx-loc__row{display:flex;justify-content:space-between;padding:.8rem 0;border-bottom:1px solid var(--border);font-size:.95rem}
-.sx-loc__addr{margin-top:1.2rem;color:var(--muted)}
-.sx-loc__map{min-height:420px}
-.sx-loc__map iframe{width:100%;height:100%;border:0}
-@media(max-width:820px){.sx-loc__grid{grid-template-columns:1fr}.sx-loc__map{min-height:320px}}
-</style>
-<section id="visit"><div class="sx-loc__grid">
-  <div class="sx-loc__content reveal">
-    <p class="eyebrow">Visit us</p><h2 class="fh">Thirsty Barber</h2>
-    <div class="sx-loc__row"><span>10:00 AM – 9:00 PM</span></div>
-    <div class="sx-loc__row"><span>10:00 AM – 9:00 PM</span></div>
-    <p class="sx-loc__addr">160 Luna Mencias</p>
-    <p class="sx-loc__addr"><a href="tel:639773608130">639773608130</a></p>
-  </div>
-  <div class="sx-loc__map reveal"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3861.8!2d121.04!3d14.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sThirsty+Barber!5e0!3m2!1sen!2sph" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe></div>
-</div></section>
-<style>
-.sx-cta{background:var(--text);color:var(--bg);text-align:center;padding:5rem 0}
-.sx-cta h2{font-size:clamp(2rem,4.5vw,3.2rem);margin:.5rem 0 .4rem}
-.sx-cta__phone{font-family:var(--font-h);font-size:clamp(1.6rem,4vw,2.4rem);color:var(--accent);display:inline-block;margin-bottom:.4rem}
-.sx-cta__hours{opacity:.7;margin-bottom:1.6rem}
-</style>
-<section class="sx-cta"><div class="container reveal">
-  <p class="eyebrow" style="color:var(--accent)">Get in touch</p>
-  <a class="sx-cta__phone" href="tel:639773608130">639773608130</a>
-  <p class="sx-cta__hours">10:00 AM – 9:00 PM</p>
-  <a class="btn" href="tel:639773608130">Get in Touch</a>
-</div></section>
-<style>
-.ft{background:var(--text);color:var(--bg);padding:3.5rem 0 2rem;text-align:center;border-top:1px solid color-mix(in srgb,var(--bg) 15%,transparent)}
-.ft__soc{display:flex;justify-content:center;gap:1.6rem;margin-bottom:1.4rem}
-.ft__soc a{font-family:var(--font-h);font-style:italic;transition:color .25s ease}
-.ft__soc a:hover{color:var(--accent)}
-.ft__copy{opacity:.6;font-size:.82rem}
-</style>
-<footer class="ft"><div class="container">
-  <div class="ft__soc">
-    <a href="" target="_blank" rel="noopener">Facebook</a>
-    <a href="" target="_blank" rel="noopener">Instagram</a>
-  </div>
-  <p class="ft__copy">&copy; <span id="yr"></span> Thirsty Barber. All rights reserved.</p>
-</div></footer>
+<!-- Menu Grid Section -->
+<section class="relative py-48 overflow-hidden bg-background">
+<div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-gutter">
+<div class="max-w-xl">
+<span class="text-primary font-label-lg text-label-lg uppercase tracking-widest mb-4 block">Signature Selections</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background">Our Services</h2>
+</div>
+<div class="h-px bg-outline-variant flex-grow mx-8 hidden md:block opacity-30 border-b border-dashed border-outline-variant"></div>
+<a class="font-label-lg text-label-lg uppercase tracking-widest text-primary flex items-center gap-2 group" href="#">
+                Full Menu <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Dish Card 1 -->
+<div class="group relative bg-surface-container-low/50 border border-outline-variant/20 rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-surface-container-low">
+<div class="aspect-[4/5] relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&amp;h=400&amp;fit=crop')" role="img" aria-label="Chef&#39;s Special"></div>
+<div class="absolute top-4 right-4">
+<span class="bg-secondary-container/80 backdrop-blur-sm text-on-secondary-container px-3 py-1 rounded-full font-label-sm text-label-sm uppercase tracking-wider">Vegetarian</span>
+</div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Chef's Special</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 italic">Today's featured dish, made fresh.</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold"></span>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">add_circle</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="group relative bg-surface-container-low/50 border border-outline-variant/20 rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-surface-container-low">
+<div class="aspect-[4/5] relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&amp;h=400&amp;fit=crop')" role="img" aria-label="Family Platter"></div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Family Platter</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 italic">Shareable portions for the table.</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold"></span>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">add_circle</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 3 -->
+<div class="group relative bg-surface-container-low/50 border border-outline-variant/20 rounded-lg overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:bg-surface-container-low">
+<div class="aspect-[4/5] relative">
+<div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style="background-image: url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=601&amp;h=401&amp;fit=crop')" role="img" aria-label="Merienda Set"></div>
+</div>
+<div class="p-8">
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Merienda Set</h3>
+<p class="text-on-surface-variant font-body-md text-body-md mb-6 italic">Quick, filling, and affordable.</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold"></span>
+<button class="material-symbols-outlined text-primary hover:scale-110 transition-transform">add_circle</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Chef Story Section -->
+<section class="relative py-48 overflow-visible bg-surface-container-high slant-up slant-down torn-edge-top torn-edge-bottom">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 items-stretch gap-0 rounded-xl overflow-hidden border border-outline-variant/20 shadow-2xl bg-surface-container-high border-dashed">
+<div class="relative min-h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center grayscale contrast-125" style="background-image: url('https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&amp;h=600&amp;fit=crop')" role="img" aria-label="Thirsty Barber"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-background/40 to-transparent"></div>
+</div>
+<div class="p-12 md:p-24 flex flex-col justify-center relative grain-bg">
+<span class="text-primary font-label-lg text-label-lg uppercase tracking-widest mb-6 block">Our Philosophy</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-8 leading-tight">About Thirsty Barber</h2>
+<div class="space-y-6">
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">Thirsty Barber brings honest, satisfying food to San Juan City. Every dish is made to be shared and enjoyed with the people you love.</p>
+</div>
+<div class="mt-12 flex items-center gap-6">
+<div class="w-16 h-px bg-primary/40 border-t border-dashed"></div>
+<span class="font-headline-md text-headline-md italic text-primary">Julian Vane</span>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">Executive Chef</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- High-Impact CTA Banner -->
+<section class="relative py-48 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="relative bg-primary-container rounded-2xl overflow-hidden p-12 md:p-20 text-center shadow-2xl grain-bg border border-dashed border-on-primary-container/20">
+<div class="relative z-10 max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-primary-container mb-6">Bring the Experience Home</h2>
+<p class="font-body-lg text-body-lg text-on-primary-container/80 mb-10">
+                Enjoy our curated menu from the comfort of your own residence. Crafted with the same precision and artistry as our dining room service.
+            </p>
+<div class="flex flex-col sm:flex-row gap-gutter justify-center">
+<button class="bg-on-primary-container text-primary-container px-12 py-5 font-label-lg text-label-lg uppercase tracking-widest font-bold transition-transform hover:scale-105 active:scale-95">
+                    Start Your Order
+                </button>
+<button class="border-2 border-on-primary-container text-on-primary-container px-12 py-5 font-label-lg text-label-lg uppercase tracking-widest font-bold transition-colors hover:bg-on-primary-container hover:text-primary-container">
+                    Reserve a Table
+                </button>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<section class="relative py-48 overflow-visible bg-surface-container-low slant-up slant-down torn-edge-top torn-edge-bottom grain-bg">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-16">
+<div class="order-2 lg:order-1">
+<span class="text-primary font-label-lg text-label-lg uppercase tracking-widest mb-6 block">Our Sourcing</span>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-8 leading-tight">Rooted in the Land</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed mb-6">
+          Our culinary journey begins in the soil. We partner with local regenerative farms to bring you the purest expression of seasonal terroir, where every harvest is a dialogue between the earth and the kitchen.
+        </p>
+<p class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed">
+          By honoring the natural cycles of the land, we ensure that every ingredient on your plate is at its peak of flavor and nutritional vitality.
+        </p>
+</div>
+<div class="order-1 lg:order-2">
+<div class="aspect-square rounded-2xl overflow-hidden border border-outline-variant/20 shadow-2xl">
+<div class="w-full h-full bg-surface-container-high flex items-center justify-center text-on-surface-variant/40">
+<span class="material-symbols-outlined text-6xl">eco</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section class="relative py-48 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto overflow-hidden">
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-6">Join the Table</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-12">
+      Be the first to know about exclusive tasting events, seasonal menu updates, and stories from our kitchen.
+    </p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-grow bg-transparent border-b border-outline-variant py-4 px-2 font-body-md text-on-background focus:outline-none focus:border-primary transition-colors placeholder:text-on-surface-variant/40" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-10 py-4 font-label-lg text-label-lg uppercase tracking-widest transition-all duration-300 hover:brightness-110" type="submit">
+        Subscribe
+      </button>
+</form>
+</div>
+</section><footer class="bg-surface-container-lowest w-full py-24 grain-bg relative slant-up torn-edge-top overflow-visible">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-desktop max-w-container-max mx-auto relative z-10">
+<div class="space-y-6">
+<h3 class="font-headline-md text-headline-md text-primary">Thirsty Barber</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-xs">Good food, great company.</p>
+<div class="flex gap-4">
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">location_on</span></a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div>
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-6">Discover</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">The Menu</a></li>
+<li><a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Our Story</a></li>
+<li><a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Sustainability</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-6">Details</h4>
+<ul class="space-y-4">
+<li><a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Privacy</a></li>
+<li><a class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Terms</a></li>
+</ul>
+</div>
+</div>
+<div class="flex flex-col items-start md:items-end justify-between">
+<div class="text-left md:text-right">
+<h4 class="font-label-lg text-label-lg uppercase tracking-widest text-primary mb-6">Location</h4>
+<p class="text-on-surface-variant font-body-md text-body-md">160 Luna Mencias</p>
+</div>
+<p class="mt-12 md:mt-0 font-body-md text-body-md text-on-surface-variant opacity-60">
+                © 2024 Thirsty Barber.
+            </p>
+</div>
+</div>
+</footer>
+<!-- Floating Reservation Widget -->
+<div class="fixed bottom-8 right-8 z-40">
+<button class="flex items-center gap-3 bg-surface-container-high/80 backdrop-blur-xl border border-outline-variant/30 text-on-surface px-6 py-4 rounded-full shadow-2xl hover:bg-surface-container-high transition-all duration-300 group">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+<span class="font-label-lg text-label-lg uppercase tracking-widest">Reserve</span>
+</button>
+</div>
 <script>
-document.addEventListener('DOMContentLoaded',function(){
-  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  setTimeout(function(){document.querySelectorAll('.reveal:not(.visible)').forEach(function(el){el.classList.add('visible');});},1600);
-  var nav=document.getElementById('nav');
-  if(nav){window.addEventListener('scroll',function(){nav.classList.toggle('scrolled',window.scrollY>50);});}
-  var yr=document.getElementById('yr');if(yr)yr.textContent=new Date().getFullYear();
-});
+    // Simple scroll interaction for header
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.classList.add('bg-surface/90', 'shadow-2xl');
+            nav.classList.remove('bg-surface/20');
+        } else {
+            nav.classList.add('bg-surface/20');
+            nav.classList.remove('bg-surface/90', 'shadow-2xl');
+        }
+    });
+
+    // Hover effect for dish cards
+    document.querySelectorAll('.group').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.style.borderColor = 'rgba(255, 181, 156, 0.4)';
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.borderColor = 'rgba(87, 66, 59, 0.2)';
+        });
+    });
+</script>
+
+<!-- ═══════════════════════════════════════════════════════════
+     CREATIVE ENHANCEMENT LAYER — by Hermes
+     GLSL Shader + Scroll Reveals + Bloom + Parallax
+     ═══════════════════════════════════════════════════════════ -->
+
+<!-- Scroll reveal CSS -->
+<style>
+  /* Custom easing variables */
+  :root {
+    --ease-expo-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-quart-out: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Scroll reveal — elements fade up on enter */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s var(--ease-expo-out), transform 0.9s var(--ease-expo-out);
+    will-change: opacity, transform;
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children */
+  .reveal-stagger > * {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s var(--ease-expo-out), transform 0.8s var(--ease-expo-out);
+  }
+  .reveal-stagger.in > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-stagger.in > *:nth-child(1) { transition-delay: 0ms; }
+  .reveal-stagger.in > *:nth-child(2) { transition-delay: 80ms; }
+  .reveal-stagger.in > *:nth-child(3) { transition-delay: 160ms; }
+  .reveal-stagger.in > *:nth-child(4) { transition-delay: 240ms; }
+  .reveal-stagger.in > *:nth-child(5) { transition-delay: 320ms; }
+  .reveal-stagger.in > *:nth-child(6) { transition-delay: 400ms; }
+
+  /* Clip-path reveal for images */
+  .clip-reveal {
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 1.2s var(--ease-expo-out);
+  }
+  .clip-reveal.in {
+    clip-path: inset(0 0 0 0);
+  }
+
+  /* Bloom overlay for CTA */
+  .bloom-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 50;
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 0.5s var(--ease-expo-out);
+  }
+  .bloom-overlay.active { opacity: 0.3; }
+  .bloom-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 600px 400px at var(--bloom-x, 50%) var(--bloom-y, 50%), rgba(255, 181, 156, 0.15), transparent);
+  }
+
+  /* Hero shader canvas */
+  #hero-canvas {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
+  /* Magnetic button effect */
+  .btn-magnetic {
+    transition: transform 0.3s var(--ease-expo-out), box-shadow 0.3s var(--ease-expo-out);
+  }
+  .btn-magnetic:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 30px rgba(255, 181, 156, 0.3);
+  }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > *, .clip-reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+      transition: none !important;
+    }
+    #hero-canvas { display: none; }
+  }
+
+  /* Focus states — keyboard accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--primary, #ffb59c);
+    outline-offset: 2px;
+  }
+
+  /* ARIA labels for background-image elements */
+  [role="img"] {
+    position: relative;
+  }
+  .dish-image > div[style*="background-image"],
+  .hero-image-frame,
+  .chef-image {
+    position: relative;
+  }
+  .dish-image::after {
+    content: attr(data-alt);
+    position: absolute;
+    width: 1px; height: 1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+  }
+</style>
+
+<!-- Bloom overlay div -->
+<div class="bloom-overlay" id="bloom-overlay"></div>
+
+<!-- GLSL Shader for hero background -->
+<canvas id="hero-canvas"></canvas>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// 1. GLSL SHADER — warm amber noise field on hero
+// ═══════════════════════════════════════════════════════════
+(function() {
+  const canvas = document.getElementById('hero-canvas');
+  const hero = document.querySelector('header') || document.querySelector('.hero');
+  if (!hero) return;
+
+  // Move canvas into hero
+  hero.style.position = hero.style.position || 'relative';
+  hero.appendChild(canvas);
+
+  const gl = canvas.getContext('webgl');
+  if (!gl) { canvas.style.display = 'none'; return; }
+
+  const vertSrc = `
+    attribute vec2 a_pos;
+    void main() { gl_Position = vec4(a_pos, 0.0, 1.0); }
+  `;
+
+  const fragSrc = `
+    precision mediump float;
+    uniform vec2 u_res;
+    uniform float u_time;
+    uniform float u_scroll;
+
+    vec3 mod289(vec3 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+    vec2 mod289(vec2 x) { return x - floor(x * (1.0/289.0)) * 289.0; }
+    vec3 permute(vec3 x) { return mod289(((x*34.0)+1.0)*x); }
+
+    float snoise(vec2 v) {
+      const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);
+      vec2 i = floor(v + dot(v, C.yy));
+      vec2 x0 = v - i + dot(i, C.xx);
+      vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);
+      vec4 x12 = x0.xyxy + C.xxzz;
+      x12.xy -= i1;
+      i = mod289(i);
+      vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));
+      vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);
+      m = m*m; m = m*m;
+      vec3 x = 2.0 * fract(p * C.www) - 1.0;
+      vec3 h = abs(x) - 0.5;
+      vec3 ox = floor(x + 0.5);
+      vec3 a0 = x - ox;
+      m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);
+      vec3 g;
+      g.x = a0.x * x0.x + h.x * x0.y;
+      g.yz = a0.yz * x12.xz + h.yz * x12.yw;
+      return 130.0 * dot(m, g);
+    }
+
+    float fbm(vec2 p) {
+      float v = 0.0;
+      float a = 0.5;
+      for (int i = 0; i < 4; i++) {
+        v += a * snoise(p);
+        p *= 2.0;
+        a *= 0.5;
+      }
+      return v;
+    }
+
+    void main() {
+      vec2 uv = gl_FragCoord.xy / u_res.xy;
+      vec2 p = uv * 3.0;
+      p.y += u_scroll * 0.002;
+      p.x += u_time * 0.02;
+
+      float n = fbm(p + vec2(u_time * 0.03, u_time * 0.01));
+      float n2 = fbm(p * 1.5 + vec2(-u_time * 0.02, u_time * 0.04));
+
+      vec3 col1 = vec3(0.07, 0.07, 0.07);
+      vec3 col2 = vec3(0.89, 0.43, 0.27);
+      vec3 col3 = vec3(1.0, 0.71, 0.61);
+
+      float t = smoothstep(-0.3, 0.5, n);
+      float t2 = smoothstep(0.2, 0.8, n2 * n);
+
+      vec3 col = mix(col1, col2, t * 0.15);
+      col = mix(col, col3, t2 * 0.08);
+
+      float vig = 1.0 - length(uv - 0.5) * 0.8;
+      col *= vig;
+
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function compile(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+
+  const prog = gl.createProgram();
+  gl.attachShader(prog, compile(gl.VERTEX_SHADER, vertSrc));
+  gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, fragSrc));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const posLoc = gl.getAttribLocation(prog, 'a_pos');
+  gl.enableVertexAttribArray(posLoc);
+  gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+
+  const resLoc = gl.getUniformLocation(prog, 'u_res');
+  const timeLoc = gl.getUniformLocation(prog, 'u_time');
+  const scrollLoc = gl.getUniformLocation(prog, 'u_scroll');
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio, 1.5);
+    canvas.width = canvas.offsetWidth * dpr;
+    canvas.height = canvas.offsetHeight * dpr;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  let scrollY = 0;
+  window.addEventListener('scroll', () => { scrollY = window.scrollY; }, { passive: true });
+
+  const start = performance.now();
+  let visible = true;
+  const observer = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, { threshold: 0 });
+  observer.observe(hero);
+
+  function render() {
+    requestAnimationFrame(render);
+    if (!visible || document.hidden) return;
+    const t = (performance.now() - start) / 1000;
+    gl.uniform2f(resLoc, canvas.width, canvas.height);
+    gl.uniform1f(timeLoc, t);
+    gl.uniform1f(scrollLoc, scrollY);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+  }
+  render();
+})();
+
+// ═══════════════════════════════════════════════════════════
+// 2. SCROLL REVEALS — Intersection Observer
+// ═══════════════════════════════════════════════════════════
+(function() {
+  // Add reveal classes to key elements
+  const sections = document.querySelectorAll('section, header > div, footer > div');
+  sections.forEach(s => s.classList.add('reveal'));
+
+  // Add stagger to grids
+  const grids = document.querySelectorAll('.grid');
+  grids.forEach(g => g.classList.add('reveal-stagger'));
+
+  // Add clip-reveal to images
+  const images = document.querySelectorAll('.aspect-square, .aspect-\\[4\\/5\\]');
+  images.forEach(img => img.classList.add('clip-reveal'));
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-stagger, .clip-reveal').forEach(el => {
+    revealObserver.observe(el);
+  });
+})();
+
+// ═══════════════════════════════════════════════════════════
+// 3. BLOOM OVERLAY — glow follows mouse on CTA
+// ═══════════════════════════════════════════════════════════
+(function() {
+  const bloom = document.getElementById('bloom-overlay');
+  const cta = document.querySelector('[class*="primary-container"]');
+
+  if (!cta || !bloom) return;
+
+  cta.addEventListener('mouseenter', () => { bloom.classList.add('active'); });
+  cta.addEventListener('mouseleave', () => { bloom.classList.remove('active'); });
+
+  cta.addEventListener('mousemove', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    bloom.style.setProperty('--bloom-x', x + '%');
+    bloom.style.setProperty('--bloom-y', y + '%');
+  });
+})();
+
+// ═══════════════════════════════════════════════════════════
+// 4. PARALLAX — hero image subtle depth
+// ═══════════════════════════════════════════════════════════
+(function() {
+  const heroImage = document.querySelector('header .aspect-square');
+  if (!heroImage) return;
+
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const scrolled = window.scrollY;
+        if (scrolled < window.innerHeight) {
+          heroImage.style.transform = `translateY(${scrolled * 0.12}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+})();
+
+// ═══════════════════════════════════════════════════════════
+// 5. MAGNETIC BUTTONS
+// ═══════════════════════════════════════════════════════════
+(function() {
+  document.querySelectorAll('button[class*="bg-primary"], button[class*="bg-on-primary"]').forEach(btn => {
+    btn.classList.add('btn-magnetic');
+  });
+})();
 </script>
 </body></html>
